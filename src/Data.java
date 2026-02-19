@@ -16,15 +16,31 @@ public class Data {
     // private String name;
     // private int population;
     // private double value;
-
+    String name = "";
+    double value = 0.0;
 
     // TODO: Create a constructor that takes all attributes as parameters
+    public Data(String name, double value) {
+        this.name = name;
+        this.value = value;
+    }
 
 
     // TODO: Add getters for attributes you need
+    public String getName() {
+        return name;
+    }
+
+    public double getValue() {
+        return value;
+    }
 
     // TODO: Add other data analysis methods
 
     // TODO: Override toString() to return a readable representation of your object
+    @Override
+    public String toString() {
+        return "Data{name='" + name + "', value=" + value + "}";
+    }
 
 }
