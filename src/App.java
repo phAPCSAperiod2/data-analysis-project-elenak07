@@ -19,7 +19,7 @@ public class App {
     public static void main(String[] args) throws FileNotFoundException {
 
         // TODO: Update this with your CSV file path
-        File file = new File("data/your_dataset.csv");
+        File file = new File("data/emissions.csv");
 
         // TODO: Create an array of Data objects to store data
         Data[] dataList = new Data[100]; //adjust size as needed
@@ -39,10 +39,11 @@ public class App {
             String line = scanner.nextLine();
             String[] columns = line.split(",");
 
-            String name = columns[0];
-            double value = Double.parseDouble(columns[1]);
+            String country = columns[0];
+            int emissions = Integer.parseInt(columns[1]);
+            int population = Integer.parseInt(columns[2]);
 
-            Data data = new Data(name, value);
+            Data data = new Data(country, emissions, population);
 
             dataList[dataCount] = data;
             dataCount++;
@@ -61,7 +62,7 @@ public class App {
 
         double max = findMaxValue(dataList, dataCount);
         double average = computeAverageValue(dataList, dataCount);
-        
+        String maxCountry = findMaxCountry(dataList, dataCount);
     
 
         // TODO: Print insights
@@ -70,6 +71,7 @@ public class App {
         // - Final answer to your guiding question
         System.out.println("Max value: " + max);
         System.out.println("Average value: " + average);
+        System.out.println("Country with highest emissions: " + maxCountry);
 
 
 
@@ -80,19 +82,37 @@ public class App {
     public static double findMaxValue(Data[] dataList, int count) {
             double max = Double.MIN_VALUE;
             for (int i = 0; i < count; i++) {
-                if (dataList[i].getValue() > max) {
-                    max = dataList[i].getValue();
+                if (dataList[i].getEmissions() > max) {
+                    max = dataList[i].getEmissions();
                 }
             }
             return max;
         }
+   
         public static double computeAverageValue(Data[] dataList, int count) {
+            if (count == 0) return 0;
+
             double sum = 0.0;
             for (int i = 0; i < count; i++) {
-                sum += dataList[i].getValue();
+                sum += dataList[i].getEmissions();
             }
             return sum / count;
         }
-}
+    
+    public static String findMaxCountry(Data[] dataList, int count) {
+    if (count == 0) return "";
 
+    int max = dataList[0].getEmissions();
+    String country = dataList[0].getCountry();
+
+    for (int i = 1; i < count; i++) {
+        if (dataList[i].getEmissions() > max) {
+            max = dataList[i].getEmissions();
+            country = dataList[i].getCountry();
+        }
+    }
+
+    return country;
+}
+}
 

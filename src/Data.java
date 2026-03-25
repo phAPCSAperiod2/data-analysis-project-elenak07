@@ -16,23 +16,29 @@ public class Data {
     // private String name;
     // private int population;
     // private double value;
-    String name = "";
-    double value = 0.0;
+    private String country;
+    private int emissions;
+    private int population;
 
     // TODO: Create a constructor that takes all attributes as parameters
-    public Data(String name, double value) {
-        this.name = name;
-        this.value = value;
+    public Data(String country, int emissions, int population) {
+        this.country = country;
+        this.emissions = emissions;
+        this.population = population;
+        
+
     }
-
-
     // TODO: Add getters for attributes you need
-    public String getName() {
-        return name;
+    public String getCountry() {
+        return country;
     }
 
-    public double getValue() {
-        return value;
+    public int getEmissions() {
+        return emissions;
+    }
+
+    public int getPopulation() {
+        return population;
     }
 
     // TODO: Add other data analysis methods
@@ -40,8 +46,11 @@ public class Data {
     // TODO: Override toString() to return a readable representation of your object
     @Override
     public String toString() {
-        return "Data{name='" + name + "', value=" + value + "}";
+        return "Data: country='" + country + "', emissions=" + emissions + ", population=" + population + "}";
     }
 
-}
-}
+    // TODO: Add other data analysis methods
+
+
+    }
+

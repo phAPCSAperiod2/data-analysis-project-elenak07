@@ -70,7 +70,9 @@ UML_Diagram.png (or UML_Diagram.pdf)
 **Source / Link:**  
 
 **What this dataset contains (2–3 sentences):**  
-____________________________________________________________________  
+This dataset contains lots of different data values from different countries. 
+There are things like birth rate, CO2 emissions, energy usage, health expentancy, and 
+life expectancy. ____________________________________________________________________  
 ____________________________________________________________________  
 
 ---
@@ -80,7 +82,7 @@ ____________________________________________________________________
 Your guiding question should be something you can answer using your dataset.
 
 **My guiding question:**  
-____________________________________________________________________  
+_Which country has the most carbon emissions?___________________________________________________________________  
 ____________________________________________________________________  
 
 Examples:
@@ -104,8 +106,30 @@ You must create a class that represents **one row** of your dataset.
 - Any additional analysis/helper methods as needed  
 
 ### ✏ Include your class diagram
+String country = "";
+int emissions = 0;
+int population = 0;
 
+public Data(String country, int emissions, int population) {
+    this.country = country;
+    this.emissions = emissions;
+    this.population = population;
 
+public String getCountry() {
+        return country;
+    }
+
+    public int getEmissions() {
+        return emissions;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+public String toString() {
+    return "Data{country='" + country + "', emissions=" + emissions + ", population=" + population + "}";
+}
 ---
 
 ## 📥 Step 4 — Read Your CSV File Using Scanner
@@ -126,9 +150,9 @@ In `Main.java`, you must:
 
 | Attribute Name | CSV Column Name | Column Index # | Notes |
 |----------------|------------------|----------------|-------|
-|                |                  |                |       |
-|                |                  |                |       |
-|                |                  |                |       |
+| country        |  Country         |     0           |  string     |
+| emissions      |  Emissions       |      1          | int      |
+| population     |  Population      |       2         |  int    |
 
 ---
 
@@ -145,8 +169,8 @@ You must write **at least two algorithms** to analyze your dataset.
 
 **Algorithms I will implement:**
 
-1. __________________________________________  
-2. __________________________________________  
+1. finding max emissions value______________________________________  
+2. finding average emisisons value______________________________________  
 
 Optional extras:  
 - Sorting  
@@ -165,13 +189,12 @@ After analyzing your objects, print:
 - ✔ A clear answer to your guiding question  
 
 **My findings:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+_________________
+______________ 
 
 **My answer to the guiding question:**  
 ____________________________________________________________________  
-____________________________________________________________________  
+
 
 ---
 
@@ -206,6 +229,7 @@ Add a UML diagram showing:
 - Visibility (private/public)
 
 Save as `UML_Diagram.png` or `.pdf` in the repo.
+https://drive.google.com/file/d/1YjAWynXSjKgnlVhs-htPcaEVt67UecYF/view?usp=drivesdk
 
 ---
 
@@ -218,7 +242,7 @@ Write a short reflection (3–5 sentences):
 - How trustworthy are your insights?
 
 **My reflection:**  
-____________________________________________________________________  
+_Some countries data may have been estimated or not accurate. The dataset may be biased by overrepresenting certain countries.If some data is missing, max, min, or average calculations could be wrong if there is missing data. Conclusions shouldn't be taken, but the insights are pretty trustworthy overall. ___________________________________________________________________  
 ____________________________________________________________________  
 ____________________________________________________________________  
 ____________________________________________________________________  
